@@ -1,0 +1,98 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C4734E12-FDA5-D1BB-15E0-84914E3FD6E3" name="Licencia">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>EC8B252F-70C6-09B2-301D-3128BDBF871C</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="9B5473E9-6DA9-38A0-B83D-8633BA2559EC">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>B777B3CF-8CA6-5066-DD55-A0D55AE4966E</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="emision" id="66583E42-81DB-B3B0-974F-287758DD0DCB">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>2362280A-14E4-F2A1-90C4-40F524E087A1</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="vencimiento" id="33E66E03-DFC6-3AB6-9878-E9D10AF8F721">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>5B341C30-C1AC-95F6-5E2A-FE2A2BF9B462</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tipo" id="DEA54BFD-4E43-0E85-1653-99EA962DF673">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>85B1A251-66D9-68ED-8896-0B89F0C9C3EF</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Persona_id" id="5EEC2AD7-0BA7-9D45-2399-2CB349BB31FB">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>50FE4FC7-FF85-B56E-BDDF-03E3A464A8AD</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3B0577AC-A82D-FAEA-249F-04619A64D7B8" referredColumn="7167B96D-FDE1-0661-98E8-4D342309E008"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="60FD0977-C610-19CF-49F4-9B1446A80195" name="Licencia_PK">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>1EF063BC-C2FB-4299-9FEE-5A2EDDAF4033</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9B5473E9-6DA9-38A0-B83D-8633BA2559EC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D9355515-4115-1C47-216E-F0C572280735" name="Licencia_Persona_FK">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>C3E25589-68FE-E796-082E-BF5C1BDC32C8</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5EEC2AD7-0BA7-9D45-2399-2CB349BB31FB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

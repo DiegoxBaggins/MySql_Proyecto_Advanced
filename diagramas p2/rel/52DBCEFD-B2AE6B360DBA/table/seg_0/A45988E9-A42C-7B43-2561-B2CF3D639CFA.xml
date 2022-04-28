@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A45988E9-A42C-7B43-2561-B2CF3D639CFA" name="Departamento">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>7BC70648-725F-ECDE-1AE6-D8871C642F54</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="2845FCC3-A110-3C02-9FE0-35BDD8F06AF4">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>54EEBCC4-9482-8CC3-723E-9CCEE1A15D37</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="F2A49304-204D-C2C1-D0B6-B5FC9ACD03FE">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>06DC5F40-A5B4-C039-C328-45E484A63AC3</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 CHAR</dataTypeSize>
+<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="52E968C0-1834-5C11-F8ED-1EE592C63BA6" name="Departamento_PK">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>A760AB77-FEBD-7AA4-15E6-0F104FA94EC3</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2845FCC3-A110-3C02-9FE0-35BDD8F06AF4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

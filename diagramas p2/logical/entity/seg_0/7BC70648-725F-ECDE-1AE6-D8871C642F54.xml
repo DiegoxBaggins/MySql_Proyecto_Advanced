@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="7BC70648-725F-ECDE-1AE6-D8871C642F54" name="Departamento">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:38:22 UTC</createdTime>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<engineerTo>
+<item key="52DBCEFD-F83D-72F0-3B27-B2AE6B360DBA" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="54EEBCC4-9482-8CC3-723E-9CCEE1A15D37">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:38:29 UTC</createdTime>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<engineerTo>
+<item key="52DBCEFD-F83D-72F0-3B27-B2AE6B360DBA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre" id="06DC5F40-A5B4-C039-C328-45E484A63AC3">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:38:51 UTC</createdTime>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<engineerTo>
+<item key="52DBCEFD-F83D-72F0-3B27-B2AE6B360DBA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 CHAR</dataTypeSize>
+<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="A760AB77-FEBD-7AA4-15E6-0F104FA94EC3" name="Departamento PK">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:38:59 UTC</createdTime>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<engineerTo>
+<item key="52DBCEFD-F83D-72F0-3B27-B2AE6B360DBA" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>54EEBCC4-9482-8CC3-723E-9CCEE1A15D37</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

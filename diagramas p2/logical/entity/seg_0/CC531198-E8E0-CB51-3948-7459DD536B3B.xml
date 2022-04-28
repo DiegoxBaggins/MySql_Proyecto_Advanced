@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="CC531198-E8E0-CB51-3948-7459DD536B3B" name="DPI">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:39:40 UTC</createdTime>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<engineerTo>
+<item key="52DBCEFD-F83D-72F0-3B27-B2AE6B360DBA" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="59C03B6D-F757-1B34-FFFB-3D914D29B0C6">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:39:40 UTC</createdTime>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<engineerTo>
+<item key="52DBCEFD-F83D-72F0-3B27-B2AE6B360DBA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="emision" id="1C4367CE-196C-456F-6849-441F143FAFBD">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:39:40 UTC</createdTime>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<engineerTo>
+<item key="52DBCEFD-F83D-72F0-3B27-B2AE6B360DBA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id1" id="F34ADEDB-3D5A-8607-7141-AD19BA469C3A">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:53:31 UTC</createdTime>
+<generatorID>920CB758-4B96-C7F1-FA1F-46CB23170B4A</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<engineerTo>
+<item key="52DBCEFD-F83D-72F0-3B27-B2AE6B360DBA" value="true"/>
+</engineerTo>
+<referedAttribute>BCF81C9D-3B17-A3AB-B76C-164DB3D1C2FD</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id11" id="9C929B34-B17E-54A2-66D7-10DCFF5F4B17">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:53:31 UTC</createdTime>
+<generatorID>920CB758-4B96-C7F1-FA1F-46CB23170B4A</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<engineerTo>
+<item key="52DBCEFD-F83D-72F0-3B27-B2AE6B360DBA" value="true"/>
+</engineerTo>
+<referedAttribute>B7E1BFE0-06A5-9DEE-EABF-E087079334EB</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id2" id="E81811F0-43F9-FF3D-7891-5C20CD8A1887">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:55:32 UTC</createdTime>
+<generatorID>FEDD24D5-A043-E51C-17A3-A2F9C0DBED22</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<engineerTo>
+<item key="52DBCEFD-F83D-72F0-3B27-B2AE6B360DBA" value="true"/>
+</engineerTo>
+<referedAttribute>F018F9C5-E778-A6BC-8F5E-4CCD0A4A64CE</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="53632A86-285A-C9D5-F0B3-5D5060EF0B38" name="Departamento PK">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:39:40 UTC</createdTime>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<engineerTo>
+<item key="52DBCEFD-F83D-72F0-3B27-B2AE6B360DBA" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>59C03B6D-F757-1B34-FFFB-3D914D29B0C6</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

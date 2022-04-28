@@ -1,0 +1,100 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="21B88597-0B36-2F8C-4F96-F396D1523FB6" name="Matrimonio">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>18862EE3-60C5-9907-9B5E-F03EC7B778FA</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="7EBD1C66-94EE-2D71-960B-9942EC8D6B60">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>0E033C12-85E1-A74E-89E1-06DAD4952A5F</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha" id="AF3768EC-D997-FA51-8C5B-BB65C675E79A">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>468708D4-B791-437B-904C-914887D05F35</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Persona_id" id="A6BDBDB2-18F0-A1B7-A912-E6FD9DFAB9FA">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>DAEC53EB-EBC6-13C8-F29F-B4EE7722724C</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="AA04D486-037F-389B-0E45-15569E2D0EC4" referredColumn="7167B96D-FDE1-0661-98E8-4D342309E008"/>
+</associations>
+</Column>
+<Column name="Persona_id2" id="0212F9F4-91D9-17D4-3D7E-932127BC4A28">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>37ACA3B7-0B78-5F5C-6A0E-D172375744C3</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="629D8517-3F80-19B8-B683-0F84E844E8A6" referredColumn="7167B96D-FDE1-0661-98E8-4D342309E008"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EFB87F9D-099E-9296-7DFD-9C0E84FBE761" name="Matrimonio_PK">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>B9605C38-83F0-69AE-2F36-62B4D969EC4E</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7EBD1C66-94EE-2D71-960B-9942EC8D6B60"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2F1796BA-5CF2-76F7-D554-71672AC82C6B" name="Matrimonio_Persona_FK">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>450937E2-0759-A02B-831B-763357D97EC6</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A6BDBDB2-18F0-A1B7-A912-E6FD9DFAB9FA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="404ABA69-B7A3-28CA-4371-1BBEA074E440" name="Matrimonio_Persona_FKv2">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>CD495BC3-DE92-6DD3-36FA-0BC510C5E09C</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0212F9F4-91D9-17D4-3D7E-932127BC4A28"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

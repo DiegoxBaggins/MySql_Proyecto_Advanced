@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="7BBDDDF9-606D-4564-16C0-202E28C57D8E" name="Municipio">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:39:28 UTC</createdTime>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<engineerTo>
+<item key="52DBCEFD-F83D-72F0-3B27-B2AE6B360DBA" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="BCF81C9D-3B17-A3AB-B76C-164DB3D1C2FD">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:39:28 UTC</createdTime>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<engineerTo>
+<item key="52DBCEFD-F83D-72F0-3B27-B2AE6B360DBA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre" id="F7CCED13-4AF6-EDD5-DAB0-21B536AB666A">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:39:28 UTC</createdTime>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<engineerTo>
+<item key="52DBCEFD-F83D-72F0-3B27-B2AE6B360DBA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 CHAR</dataTypeSize>
+<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id1" id="B7E1BFE0-06A5-9DEE-EABF-E087079334EB">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:53:23 UTC</createdTime>
+<generatorID>51BC4B99-7BA3-4267-673A-74E70B3D3807</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<engineerTo>
+<item key="52DBCEFD-F83D-72F0-3B27-B2AE6B360DBA" value="true"/>
+</engineerTo>
+<referedAttribute>54EEBCC4-9482-8CC3-723E-9CCEE1A15D37</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="9BFA244E-CFF1-1986-7B14-84700A912BA8" name="Departamento PK">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:39:28 UTC</createdTime>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<engineerTo>
+<item key="52DBCEFD-F83D-72F0-3B27-B2AE6B360DBA" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>BCF81C9D-3B17-A3AB-B76C-164DB3D1C2FD</attributeRef>
+<attributeRef>B7E1BFE0-06A5-9DEE-EABF-E087079334EB</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

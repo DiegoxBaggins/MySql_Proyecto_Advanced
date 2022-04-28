@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="42236780-1844-62FE-EE9D-9608182FB394" name="Municipio">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>7BBDDDF9-606D-4564-16C0-202E28C57D8E</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="D8A7144D-BF36-A07A-6A56-9B63E58072AF">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>BCF81C9D-3B17-A3AB-B76C-164DB3D1C2FD</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="C494DB6D-0768-1CB4-9DA9-863B4A0CCEFE">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>F7CCED13-4AF6-EDD5-DAB0-21B536AB666A</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 CHAR</dataTypeSize>
+<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Departamento_id" id="7205AA33-6FC8-64D6-088D-14938E00016C">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>B7E1BFE0-06A5-9DEE-EABF-E087079334EB</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C5B54830-8D50-43EE-47FC-F1BA833FAB63" referredColumn="2845FCC3-A110-3C02-9FE0-35BDD8F06AF4"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E7FB0E46-884A-4D79-BD65-BD90E12A3D0B" name="Municipio_PK">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>9BFA244E-CFF1-1986-7B14-84700A912BA8</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D8A7144D-BF36-A07A-6A56-9B63E58072AF"/>
+<colUsage columnID="7205AA33-6FC8-64D6-088D-14938E00016C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="12814937-896F-7C8F-D619-C31961DEC8A1" name="Municipio_Departamento_FK">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>51BC4B99-7BA3-4267-673A-74E70B3D3807</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7205AA33-6FC8-64D6-088D-14938E00016C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

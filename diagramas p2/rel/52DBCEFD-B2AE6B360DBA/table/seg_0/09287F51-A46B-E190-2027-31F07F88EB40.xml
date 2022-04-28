@@ -1,0 +1,179 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="09287F51-A46B-E190-2027-31F07F88EB40" name="Nacimiento">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>BFC06BB8-6E8B-6846-ECB6-08348C1B7BAB</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="8390A81B-FD03-AF50-E534-AAD3ACD9CF83">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>EBA9DD39-723C-762D-D404-86DA309C6A45</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha" id="6E0D638E-F93A-AB1A-0CE3-7F953F65B536">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>77953C31-EA59-860B-2DD7-B10129C5E62F</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Municipio_id" id="EAC01CE9-6CAE-ECD6-746A-1786C6EEFB15">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>DAB095DC-94E1-C0F2-2DFD-0F88BBD3F58F</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7AA462F4-E32E-2BCD-808E-5610EA116455" referredColumn="D8A7144D-BF36-A07A-6A56-9B63E58072AF"/>
+</associations>
+</Column>
+<Column name="Municipio_Departamento_id" id="7BF293B9-76B2-06B3-CE68-FD9D6459242A">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>0155522A-8591-C90E-EAF6-572479C5530D</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7AA462F4-E32E-2BCD-808E-5610EA116455" referredColumn="7205AA33-6FC8-64D6-088D-14938E00016C"/>
+</associations>
+</Column>
+<Column name="Persona_id2" id="0E2F1EC7-E07A-7C68-478E-9AFBD6FDF76B">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>F6F164B7-3F50-881B-739A-4A58534B6639</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="90B0B7C9-867E-2858-951B-7A50DCEC3B4D" referredColumn="7167B96D-FDE1-0661-98E8-4D342309E008"/>
+</associations>
+</Column>
+<Column name="Persona_id3" id="ECDE163D-735B-C77E-DA3E-F98FD73D5C3E">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>5F3F6D61-2022-589F-659A-B005D1BF2288</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E9BEAE0B-F263-AED9-55CE-FCF9433F2D0A" referredColumn="7167B96D-FDE1-0661-98E8-4D342309E008"/>
+</associations>
+</Column>
+<Column name="Persona_id" id="292784A6-5A32-E68C-913E-249323E47661">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>A9DBD0F8-DCB0-DD49-524B-A9D29DA74019</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6BB9C1D6-724E-0A93-EEB7-C9A154DA55D8" referredColumn="7167B96D-FDE1-0661-98E8-4D342309E008"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C0457393-4703-6B02-F61B-36B70A047277" name="Nacimiento_PK">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>8DFF19B1-29BD-A73E-A518-9C7D2CC3C6C9</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8390A81B-FD03-AF50-E534-AAD3ACD9CF83"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DF23381F-3C71-7D5E-8EC4-343E11755B23" name="Nacimiento__IDX">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>9711935D-B137-A00E-84A7-C6F92538F871</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="292784A6-5A32-E68C-913E-249323E47661"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="179A061D-3115-B032-D0AD-0BD623A55504" name="Nacimiento_Persona_FK">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>9711935D-B137-A00E-84A7-C6F92538F871</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="292784A6-5A32-E68C-913E-249323E47661"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="71975044-1D19-D543-308C-C6F61EF84C7F" name="Nacimiento_Municipio_FK">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>D4ADBE7F-29A1-78E4-7E5F-80C6DC591E31</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EAC01CE9-6CAE-ECD6-746A-1786C6EEFB15"/>
+<colUsage columnID="7BF293B9-76B2-06B3-CE68-FD9D6459242A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CA9C7AD9-C2CF-B15C-6FB4-50B9BC1F657C" name="Nacimiento_Persona_FKv2">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>26F29EA4-E89B-F635-FB73-7D35EF3C83EF</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0E2F1EC7-E07A-7C68-478E-9AFBD6FDF76B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="13F5714B-4226-0318-82C5-B2D8778D24CB" name="Nacimiento_Persona_FKv3">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:57:54 UTC</createdTime>
+<generatorID>53FA77FD-0C40-6D63-47C6-CEBAAEC21202</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="ECDE163D-735B-C77E-DA3E-F98FD73D5C3E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

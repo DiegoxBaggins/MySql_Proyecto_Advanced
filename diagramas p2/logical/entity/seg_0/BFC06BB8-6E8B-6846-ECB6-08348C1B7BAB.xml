@@ -1,0 +1,127 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="BFC06BB8-6E8B-6846-ECB6-08348C1B7BAB" name="Nacimiento">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:39:34 UTC</createdTime>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<engineerTo>
+<item key="52DBCEFD-F83D-72F0-3B27-B2AE6B360DBA" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="EBA9DD39-723C-762D-D404-86DA309C6A45">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:39:34 UTC</createdTime>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<engineerTo>
+<item key="52DBCEFD-F83D-72F0-3B27-B2AE6B360DBA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fecha" id="77953C31-EA59-860B-2DD7-B10129C5E62F">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:39:34 UTC</createdTime>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<engineerTo>
+<item key="52DBCEFD-F83D-72F0-3B27-B2AE6B360DBA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id1" id="DAB095DC-94E1-C0F2-2DFD-0F88BBD3F58F">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:53:41 UTC</createdTime>
+<generatorID>D4ADBE7F-29A1-78E4-7E5F-80C6DC591E31</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<engineerTo>
+<item key="52DBCEFD-F83D-72F0-3B27-B2AE6B360DBA" value="true"/>
+</engineerTo>
+<referedAttribute>BCF81C9D-3B17-A3AB-B76C-164DB3D1C2FD</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id11" id="0155522A-8591-C90E-EAF6-572479C5530D">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:53:41 UTC</createdTime>
+<generatorID>D4ADBE7F-29A1-78E4-7E5F-80C6DC591E31</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<engineerTo>
+<item key="52DBCEFD-F83D-72F0-3B27-B2AE6B360DBA" value="true"/>
+</engineerTo>
+<referedAttribute>B7E1BFE0-06A5-9DEE-EABF-E087079334EB</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id3" id="F6F164B7-3F50-881B-739A-4A58534B6639">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:53:50 UTC</createdTime>
+<generatorID>26F29EA4-E89B-F635-FB73-7D35EF3C83EF</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<engineerTo>
+<item key="52DBCEFD-F83D-72F0-3B27-B2AE6B360DBA" value="true"/>
+</engineerTo>
+<referedAttribute>F018F9C5-E778-A6BC-8F5E-4CCD0A4A64CE</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id4" id="5F3F6D61-2022-589F-659A-B005D1BF2288">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:53:55 UTC</createdTime>
+<generatorID>53FA77FD-0C40-6D63-47C6-CEBAAEC21202</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<engineerTo>
+<item key="52DBCEFD-F83D-72F0-3B27-B2AE6B360DBA" value="true"/>
+</engineerTo>
+<referedAttribute>F018F9C5-E778-A6BC-8F5E-4CCD0A4A64CE</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id2" id="A9DBD0F8-DCB0-DD49-524B-A9D29DA74019">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:55:00 UTC</createdTime>
+<generatorID>9711935D-B137-A00E-84A7-C6F92538F871</generatorID>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<engineerTo>
+<item key="52DBCEFD-F83D-72F0-3B27-B2AE6B360DBA" value="true"/>
+</engineerTo>
+<referedAttribute>F018F9C5-E778-A6BC-8F5E-4CCD0A4A64CE</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="8DFF19B1-29BD-A73E-A518-9C7D2CC3C6C9" name="Departamento PK">
+<createdBy>dalej</createdBy>
+<createdTime>2022-04-28 02:39:34 UTC</createdTime>
+<ownerDesignName>diagramas p2</ownerDesignName>
+<engineerTo>
+<item key="52DBCEFD-F83D-72F0-3B27-B2AE6B360DBA" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>EBA9DD39-723C-762D-D404-86DA309C6A45</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
