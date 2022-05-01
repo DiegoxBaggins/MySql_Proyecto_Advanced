@@ -12,9 +12,9 @@ CREATE TABLE Departamento
 CREATE TABLE Municipio 
     (
      id INTEGER NOT NULL , 
-     nombre VARCHAR (25) NOT NULL , 
+     nombre VARCHAR (35) NOT NULL , 
      departamento INTEGER NOT NULL ,
-     PRIMARY KEY (id, departamento) ,
+     PRIMARY KEY (id) ,
      FOREIGN KEY (departamento) REFERENCES Departamento(id)
     );
 
@@ -29,7 +29,11 @@ CREATE TABLE Persona
      genero CHAR (1) NOT NULL , 
      estadoCivil CHAR NOT NULL , 
      PRIMARY KEY (cui) ,
-     CONSTRAINT genValido CHECK (genero = 'M' || genero = 'F')
+     CONSTRAINT genValido CHECK (genero = 'M' OR genero = 'F') ,
+     CONSTRAINT civValido CHECK (estadoCivil = 'Soltero' OR estadoCivil = 'Casado' 
+     OR estadoCivil = 'Divorciado' OR estadoCivil = 'Viudo' 
+     OR estadoCivil = 'Soltera' OR estadoCivil = 'Casada' 
+     OR estadoCivil = 'Divorciada' OR estadoCivil = 'Viuda')
     );
 
 CREATE TABLE DPI 
@@ -37,10 +41,9 @@ CREATE TABLE DPI
      id INTEGER NOT NULL , 
      emision DATE NOT NULL , 
      municipio INTEGER NOT NULL , 
-     departamento INTEGER NOT NULL , 
      cui INTEGER NOT NULL, 
      PRIMARY KEY (id) ,
-     FOREIGN KEY (municipio, departamento) REFERENCES Municipio(id, departamento)
+     FOREIGN KEY (municipio) REFERENCES Municipio(id)
     );
 
 CREATE TABLE Nacimiento 
@@ -48,13 +51,14 @@ CREATE TABLE Nacimiento
      id INTEGER NOT NULL , 
      fecha DATE NOT NULL , 
      municipio INTEGER NOT NULL , 
-     departamento INTEGER NOT NULL , 
      persona INTEGER NOT NULL , 
      padre INTEGER NOT NULL , 
      madre INTEGER NOT NULL ,
      PRIMARY KEY (id) ,
-     FOREIGN KEY (municipio, departamento) REFERENCES Municipio(id, departamento) ,
-     FOREIGN KEY (persona, padre, madre) REFERENCES Persona(cui, cui, cui)
+     FOREIGN KEY (municipio) REFERENCES Municipio(id) ,
+     FOREIGN KEY (persona) REFERENCES Persona(cui) ,
+     FOREIGN KEY (padre) REFERENCES Persona(cui) ,
+     FOREIGN KEY (madre) REFERENCES Persona(cui)
     );
 
 CREATE TABLE Licencia 
@@ -65,7 +69,9 @@ CREATE TABLE Licencia
      tipo CHAR (1) NOT NULL, 
      persona INTEGER NOT NULL ,
      PRIMARY KEY (id) ,
-     FOREIGN KEY (persona) REFERENCES Persona(cui)  
+     FOREIGN KEY (persona) REFERENCES Persona(cui) ,
+     CONSTRAINT tipoValido CHECK (tipo = 'A' OR tipo = 'B' 
+     OR tipo = 'C' OR tipo = 'M' OR tipo = 'E')  
     );
 
 
@@ -97,7 +103,8 @@ CREATE TABLE Matrimonio
      marido INTEGER NOT NULL , 
      mujer INTEGER NOT NULL ,
      PRIMARY KEY (id) ,
-     FOREIGN KEY (marido, mujer) REFERENCES Persona(cui, cui) 
+     FOREIGN KEY (marido) REFERENCES Persona(cui),
+     FOREIGN KEY (mujer) REFERENCES Persona(cui) 
     );
 
 
