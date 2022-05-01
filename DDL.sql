@@ -4,7 +4,7 @@ use Renap31;
 
 CREATE TABLE Departamento 
     (
-     id INTEGER NOT NULL , 
+     id INTEGER NOT NULL ,
      nombre VARCHAR (25) NOT NULL ,
      PRIMARY KEY (id) 
     );
@@ -27,7 +27,7 @@ CREATE TABLE Persona
      apellido1 VARCHAR (25) NOT NULL , 
      apellido2 VARCHAR (25) NOT NULL , 
      genero CHAR (1) NOT NULL , 
-     estadoCivil CHAR NOT NULL , 
+     estadoCivil VARCHAR (10) NOT NULL ,
      PRIMARY KEY (cui) ,
      CONSTRAINT genValido CHECK (genero = 'M' OR genero = 'F') ,
      CONSTRAINT civValido CHECK (estadoCivil = 'Soltero' OR estadoCivil = 'Casado' 

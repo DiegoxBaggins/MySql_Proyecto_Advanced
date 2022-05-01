@@ -13,7 +13,7 @@ insert into departamento (id, nombre) select distinct
 select * from departamento;
 
 select
-codigo, municipio, id from temp_dept, departamento 
+codigo, municipio, id from temp_dept, departamento
 where temp_dept.departamento = departamento.nombre;
 
 insert into municipio (id, nombre, departamento)  select
