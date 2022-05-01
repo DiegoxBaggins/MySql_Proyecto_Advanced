@@ -20,7 +20,7 @@ CREATE TABLE Municipio
 
 CREATE TABLE Persona 
     (
-     cui INTEGER NOT NULL , 
+     cui INTEGER AUTO_INCREMENT NOT NULL , 
      nombre1 VARCHAR (25) NOT NULL , 
      nombre2 VARCHAR (25) , 
      nombre3 VARCHAR (25) , 
@@ -38,7 +38,7 @@ CREATE TABLE Persona
 
 CREATE TABLE DPI 
     (
-     id INTEGER NOT NULL , 
+     id INTEGER AUTO_INCREMENT NOT NULL , 
      emision DATE NOT NULL , 
      municipio INTEGER NOT NULL , 
      cui INTEGER NOT NULL, 
@@ -48,7 +48,7 @@ CREATE TABLE DPI
 
 CREATE TABLE Nacimiento 
     (
-     id INTEGER NOT NULL , 
+     id INTEGER AUTO_INCREMENT NOT NULL , 
      fecha DATE NOT NULL , 
      municipio INTEGER NOT NULL , 
      persona INTEGER NOT NULL , 
@@ -63,7 +63,7 @@ CREATE TABLE Nacimiento
 
 CREATE TABLE Licencia 
     (
-     id INTEGER NOT NULL , 
+     id INTEGER AUTO_INCREMENT NOT NULL , 
      emision DATE NOT NULL , 
      vencimiento DATE NOT NULL , 
      tipo CHAR (1) NOT NULL, 
@@ -77,7 +77,7 @@ CREATE TABLE Licencia
 
 CREATE TABLE Anulacion 
     (
-     id INTEGER NOT NULL , 
+     id INTEGER AUTO_INCREMENT NOT NULL , 
      fechaFin DATE NOT NULL , 
      motivo VARCHAR (100) NOT NULL , 
      licencia INTEGER NOT NULL ,
@@ -87,7 +87,7 @@ CREATE TABLE Anulacion
 
 CREATE TABLE Defuncion 
     (
-     id INTEGER NOT NULL , 
+     id INTEGER AUTO_INCREMENT NOT NULL , 
      fecha DATE NOT NULL , 
      motivo VARCHAR (100) NOT NULL , 
      persona INTEGER NOT NULL ,
@@ -98,7 +98,7 @@ CREATE TABLE Defuncion
 
 CREATE TABLE Matrimonio 
     (
-     id INTEGER NOT NULL , 
+     id INTEGER AUTO_INCREMENT NOT NULL , 
      fecha DATE NOT NULL , 
      marido INTEGER NOT NULL , 
      mujer INTEGER NOT NULL ,
@@ -110,12 +110,19 @@ CREATE TABLE Matrimonio
 
 CREATE TABLE Divorcio 
     (
-     id INTEGER NOT NULL , 
+     id INTEGER AUTO_INCREMENT NOT NULL , 
      fecha DATE NOT NULL , 
      matrimonio INTEGER NOT NULL ,
      PRIMARY KEY (id) ,
      FOREIGN KEY (matrimonio) REFERENCES Matrimonio(id) 
     );
+
+CREATE TABLE TEMP_DEPT
+    (
+    codigo INTEGER NOT NULL ,
+    departamento VARCHAR(25) NOT NULL ,
+    municipio VARCHAR(35) NOT NULL
+)
 
     
 
