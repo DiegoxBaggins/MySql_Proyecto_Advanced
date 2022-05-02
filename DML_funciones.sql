@@ -89,3 +89,47 @@ delimiter ;
 
 Call agregarNacimiento(1000000010105, 1000000021101,'Diego', 'fer', NULL, '2000-10-5', 0101, 'M');
 
+delimiter //
+Create FUNCTION getMuerto(cui int)
+    RETURNS BOOLEAN DETERMINISTIC
+    BEGIN
+        DECLARE pers int;
+        SET pers = (SELECT persona FROM defuncion WHERE persona = cui limit 1);
+        RETURN IF(pers > 0, true, false);
+    end //
+delimiter ;
+
+delimiter //
+create procedure agregarDefuncion(
+    IN muerto bigint,
+    IN fechaFall date,
+    IN motivacion varchar(100)
+)
+bloque:begin
+        DECLARE muertoCui int;
+        DECLARE fechaNac DATE;
+        SET muertoCui = muerto div 10000;
+        IF motivacion IS NULL THEN
+            CALL mostrarError('motivo nulo');
+            LEAVE bloque;
+        ELSEIF NOT personaExiste(muertoCui) THEN
+                CALL mostrarError('persona no existente');
+            LEAVE bloque;
+        ELSEIF (fechaFall > curdate()) THEN
+                CALL mostrarError('fecha muerte invalida');
+            LEAVE bloque;
+        end if;
+        Set fechaNac = (SELECT fecha from nacimiento where persona = muerto);
+        IF (fechaFall < fechaNac) THEN
+                CALL mostrarError('fecha muerte invalida, previa al nacimiento');
+            LEAVE bloque;
+        ELSEIF getMuerto(muertoCui) THEN
+                CALL mostrarError('persona ya esta muerta');
+            LEAVE bloque;
+        end if;
+        insert into defuncion (fecha, motivo, persona) VALUES (fechaFall, motivacion, muertoCui);
+        select * from defuncion where persona = muertoCui;
+end //
+delimiter ;
+
+call agregarDefuncion(1000000200101, '2020-01-01', 'COVID');
