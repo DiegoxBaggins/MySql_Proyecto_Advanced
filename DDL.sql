@@ -43,7 +43,8 @@ CREATE TABLE DPI
      municipio INTEGER NOT NULL , 
      cui INTEGER NOT NULL, 
      PRIMARY KEY (id) ,
-     FOREIGN KEY (municipio) REFERENCES Municipio(id)
+     FOREIGN KEY (municipio) REFERENCES Municipio(id),
+     FOREIGN KEY (cui) REFERENCES Persona(cui)
     );
 
 CREATE TABLE Nacimiento 

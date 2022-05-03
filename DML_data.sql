@@ -50,6 +50,9 @@ VALUES (curdate(), 101, 100000000),
        (curdate(), 101, 100000013),
        (curdate(), 101, 100000014);
 
+insert into dpi (emision, municipio, cui)
+VALUES (curdate(), 101, 100000028);
+
 insert into defuncion (fecha, motivo, persona)
 VALUES (curdate(), 'COVID', 100000000),
        (curdate(), 'COVID', 100000003),
