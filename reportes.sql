@@ -67,3 +67,58 @@ end //
 delimiter ;
 
 call getNacimiento(1000000200101);
+
+delimiter //
+create procedure getMatrimonio(
+    IN matr int
+)
+bloque:begin
+        DECLARE nombreMarido, nombreMujer varchar(125);
+        DECLARE cuiH, cuiM int;
+        DECLARE cuiLargo1, cuiLargo2 bigint;
+        IF NOT matrimonioExiste(matr) THEN
+                CALL mostrarError('matrimonio no existe');
+            LEAVE bloque;
+        end if;
+        SET cuiH = (select marido from matrimonio where id = matr);
+        SET cuiM = (select mujer from matrimonio where id = matr);
+        SET nombreMarido = getNombreCompleto(cuiH);
+        SET nombreMujer = getNombreCompleto(cuiM);
+        SET cuiLargo1 = (cuiH *10000) + (select municipio from nacimiento where persona = cuiH);
+        SET cuiLargo2 = (cuiM *10000) + (select municipio from nacimiento where persona = cuiM);
+        SELECT id as No_Acta, cuiLargo1 as DPI_Hombre, nombreMarido as Nombre_Hombre,
+               cuiLargo2 as DPI_MUjer, nombreMujer as Nombre_Mujer, fecha
+        from matrimonio where id = matr;
+end //
+delimiter ;
+
+call getMatrimonio(12);
+
+delimiter //
+create procedure getDivorcio(
+    IN matr int
+)
+bloque:begin
+        DECLARE nombreMarido, nombreMujer varchar(125);
+        DECLARE cuiH, cuiM int;
+        DECLARE cuiLargo1, cuiLargo2 bigint;
+        IF NOT matrimonioExiste(matr) THEN
+                CALL mostrarError('matrimonio no existe');
+            LEAVE bloque;
+        ELSEIF NOT divorcioExiste(matr) THEN
+                CALL mostrarError('no se han divorciado');
+            LEAVE bloque;
+        end if;
+        SET cuiH = (select marido from matrimonio where id = matr);
+        SET cuiM = (select mujer from matrimonio where id = matr);
+        SET nombreMarido = getNombreCompleto(cuiH);
+        SET nombreMujer = getNombreCompleto(cuiM);
+        SET cuiLargo1 = (cuiH *10000) + (select municipio from nacimiento where persona = cuiH);
+        SET cuiLargo2 = (cuiM *10000) + (select municipio from nacimiento where persona = cuiM);
+        SELECT id as No_Acta, cuiLargo1 as DPI_Hombre, nombreMarido as Nombre_Hombre,
+               cuiLargo2 as DPI_MUjer, nombreMujer as Nombre_Mujer, fecha
+        from divorcio where matrimonio = matr;
+end //
+delimiter ;
+
+call getDivorcio(11);
