@@ -47,7 +47,7 @@ Create FUNCTION getNombreCompleto(codigo int)
 delimiter ;
 
 delimiter //
-create procedure agregarNacimiento(
+create procedure addNacimiento(
     IN pad bigint,
     IN mad bigint,
     IN primer varchar(25),
@@ -106,7 +106,7 @@ DECLARE ape1 VARCHAR(25);
 end //
 delimiter ;
 
-Call agregarNacimiento(1000000010105, 1000000021101,'Fernana', 'fer', NULL, '05-09-2000', 0101, 'F');
+Call addNacimiento(1000000010105, 1000000021101,'Fernana', 'fer', NULL, '05-09-2000', 0101, 'F');
 
 delimiter //
 Create FUNCTION getMuerto(cui int)
@@ -119,7 +119,7 @@ Create FUNCTION getMuerto(cui int)
 delimiter ;
 
 delimiter //
-create procedure agregarDefuncion(
+create procedure addDefuncion(
     IN muerto bigint,
     IN fechaFall varchar(12),
     IN motivacion varchar(100)
@@ -153,7 +153,7 @@ bloque:begin
 end //
 delimiter ;
 
-call agregarDefuncion(1000000260101, '01-01-2022', 'COVID');
+call addDefuncion(1000000260101, '01-01-2022', 'COVID');
 
 delimiter //
 Create FUNCTION getMatrimonioActual(codigo int)
@@ -186,7 +186,7 @@ Create FUNCTION dpiExiste(codigo int)
 delimiter ;
 
 delimiter //
-create procedure agregarMatrimonio(
+create procedure addMatrimonio(
     IN hombre bigint,
     IN mujer bigint,
     IN fechaMat varchar(12)
@@ -197,7 +197,6 @@ bloque:begin
         DECLARE cuiH int;
         DECLARE cuiM int;
         DECLARE fecha_matrimonio date;
-        DECLARE codigo_mat int;
         SET fecha_matrimonio = STR_TO_DATE(fechaMat, '%d-%m-%Y');
         SET cuiH = hombre div 10000;
         SET cuiM = mujer div 10000;
@@ -231,4 +230,61 @@ bloque:begin
 end //
 delimiter ;
 
-call agregarMatrimonio(1000000270101, 1000000280101, '05-03-2022');
+call addMatrimonio(1000000270101, 1000000280101, '05-03-2022');
+
+delimiter //
+Create FUNCTION matrimonioExiste(codigo int)
+    RETURNS BOOLEAN DETERMINISTIC
+    BEGIN
+        DECLARE iden int;
+        SET iden = (SELECT id FROM matrimonio where id = codigo);
+        RETURN IF(iden > 0, true, false);
+    end //
+delimiter ;
+
+delimiter //
+Create FUNCTION divorcioExiste(codigo int)
+    RETURNS BOOLEAN DETERMINISTIC
+    BEGIN
+        DECLARE iden int;
+        SET iden = (SELECT id FROM divorcio where matrimonio = codigo);
+        RETURN IF(iden > 0, true, false);
+    end //
+delimiter ;
+
+delimiter //
+create procedure addDivorcio(
+    IN acta int,
+    IN fechaDiv varchar(12)
+)
+bloque:begin
+        DECLARE fecha_divorcio date;
+        DECLARE fecha_matrimonio date;
+        DECLARE cuiH int;
+        DECLARE cuiM int;
+        SET fecha_divorcio = STR_TO_DATE(fechaDiv, '%d-%m-%Y');
+        IF (fecha_divorcio > curdate()) THEN
+                CALL mostrarError('fecha invalida');
+            LEAVE bloque;
+        ELSEIF NOT matrimonioExiste(acta) THEN
+                CALL mostrarError('matrimonio no existe');
+            LEAVE bloque;
+        end if;
+        SET fecha_matrimonio = (select fecha from matrimonio where id = acta);
+        SET cuiH = (select marido from matrimonio where id = acta);
+        SET cuiM = (select mujer from matrimonio where id = acta);
+        IF divorcioExiste(acta) THEN
+                CALL mostrarError('matrimonio ya ha sido anulado');
+            LEAVE bloque;
+        ELSEIF fecha_divorcio < fecha_matrimonio THEN
+                CALL mostrarError('error en la fecha');
+            LEAVE bloque;
+        end if;
+        insert into divorcio (fecha, matrimonio) VALUES (fecha_divorcio, acta);
+        update persona set estadoCivil = 'Divorciado' where cui =cuiH;
+        update persona set estadoCivil = 'Divorciada' where cui =cuiM;
+        select * from matrimonio order by id desc limit 1;
+end //
+delimiter ;
+
+call addDivorcio(11, '08-03-2022');
