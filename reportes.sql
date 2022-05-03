@@ -122,3 +122,32 @@ end //
 delimiter ;
 
 call getDivorcio(11);
+
+delimiter //
+create procedure getDefuncion(
+    IN muertoCui bigint
+)
+bloque:begin
+        DECLARE nombres, apellidos varchar(75);
+        DECLARE cuiPer int;
+        SET cuiPer = muertoCui div 10000;
+        IF NOT personaExiste(cuiPer) THEN
+                CALL mostrarError('persona no existente');
+            LEAVE bloque;
+        ELSEIF NoT getMuerto(cuiPer) THEN
+                CALL mostrarError('persona no está muerta');
+            LEAVE bloque;
+        end if;
+        SET nombres = getNombres(cuiPer);
+        SET apellidos = getApellidos(cuiPer);
+        SELECT def.id as No_Acta, muertoCui as CUI, apellidos, nombres, Def.fecha as fecha_fallecimiento,
+               D.nombre as Departamento, m.nombre as Municipio
+        from defuncion def inner join persona p on def.persona = p.cui
+        inner join nacimiento n on p.cui = n.persona
+        inner join municipio m on n.municipio = m.id
+        inner join departamento d on m.departamento = d.id
+        where def.persona = cuiPer ;
+end //
+delimiter ;
+
+call getDefuncion(1000000200101);
