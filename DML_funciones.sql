@@ -180,7 +180,7 @@ Create FUNCTION dpiExiste(codigo int)
     RETURNS BOOLEAN DETERMINISTIC
     BEGIN
         DECLARE iden int;
-        SET iden = (SELECT cui FROM dpi where cui = codigo);
+        SET iden = (SELECT id FROM dpi where cui = codigo);
         RETURN IF(iden > 0, true, false);
     end //
 delimiter ;
@@ -288,3 +288,37 @@ end //
 delimiter ;
 
 call addDivorcio(11, '08-03-2022');
+
+delimiter //
+create procedure generarDPI(
+    IN documento bigint,
+    IN fechaEm varchar(12),
+    IN lugar int
+)
+bloque:begin
+        DECLARE cuiPersona int;
+        DECLARE fecha_emision date;
+        SET fecha_emision = STR_TO_DATE(fechaEm, '%d-%m-%Y');
+        SET cuiPersona = documento div 10000;
+        IF (fecha_emision > curdate()) THEN
+                CALL mostrarError('fecha invalida');
+            LEAVE bloque;
+        ELSEIF NOT EXISTS (SELECT id from municipio where id = lugar) THEN
+                CALL mostrarError('municipio no existe');
+            LEAVE bloque;
+        ELSEIF NOT personaExiste(cuiPersona) THEN
+                CALL mostrarError('persona no existente');
+            LEAVE bloque;
+         ELSEIF (NOT getEdad(cuiPersona)) THEN
+                CALL mostrarError('no tiene edad suficiente');
+            LEAVE bloque;
+        ELSEIF (dpiExiste(cuiPersona)) THEN
+                CALL mostrarError('Ya tiene dpi');
+            LEAVE bloque;
+        end if;
+         insert into dpi (emision, municipio, cui) values (fecha_emision, lugar, cuiPersona);
+         select p.cui, nombre1, apellido1, apellido2, emision, municipio from persona p, dpi where p.cui = dpi.cui and p.cui = cuiPersona;
+end //
+delimiter ;
+
+Call generarDPI(1000000260101, '05-09-2021', 1401);
