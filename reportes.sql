@@ -151,3 +151,42 @@ end //
 delimiter ;
 
 call getDefuncion(1000000200101);
+
+delimiter //
+create procedure getDPI(
+    IN consultadpi bigint
+)
+bloque:begin
+        DECLARE nombres, apellidos, muniVecindad, deptVecindad varchar(75);
+        DECLARE cuiPer int;
+        DECLARE genChar char(1);
+        DECLARE gene varchar(25);
+        SET cuiPer = consultadpi div 10000;
+        IF NOT personaExiste(cuiPer) THEN
+                CALL mostrarError('persona no existente');
+            LEAVE bloque;
+        ELSEIF NoT dpiExiste(cuiPer) THEN
+                CALL mostrarError('persona no tiene DPI');
+            LEAVE bloque;
+        end if;
+        set genChar = (select genero from persona where cui = cuiPer);
+        IF genChar = 'M' THEN
+            SET gene = 'Masculino';
+        ELSE
+            SET gene = 'Femenino';
+        end if;
+        SET nombres = getNombres(cuiPer);
+        SET apellidos = getApellidos(cuiPer);
+        SET muniVecindad = (select nombre from municipio, dpi where municipio.id = dpi.municipio and dpi.cui = cuiPer);
+        SET deptVecindad = (select d.nombre from municipio, dpi, departamento d where
+        d.id = municipio.departamento and municipio.id = dpi.municipio and dpi.cui = cuiPer);
+        SELECT consultadpi as CUI, apellidos, nombres, n.fecha as fechanac,
+               D.nombre as Departamento, m.nombre as Municipio, deptVecindad, muniVecindad, gene as genero
+        from persona p inner join nacimiento n on p.cui = n.persona
+        inner join municipio m on n.municipio = m.id
+        inner join departamento d on m.departamento = d.id
+        where p.cui = cuiPer ;
+end //
+delimiter ;
+
+call getDPI(1000000250101);
