@@ -441,3 +441,81 @@ end //
 delimiter ;
 
 Call anularLicencia(26, '06-04-2022', 'Tontotonto');
+
+delimiter //
+create procedure renewLicencia(
+    IN documento int,
+    IN fechaRen varchar(12),
+    IN type char(1)
+)
+bloque:begin
+        DECLARE fecha_actual date;
+        DECLARE fecha_renovacion date;
+        DECLARE fecha_nueva date;
+        DECLARE anu int;
+        DECLARE tipo_actual char(1);
+        DECLARE anios int;
+        DECLARE duenio int;
+        SET fecha_renovacion = STR_TO_DATE(fechaRen, '%d-%m-%Y');
+        IF (fecha_renovacion > curdate()) THEN
+                CALL mostrarError('fecha invalida');
+            LEAVE bloque;
+        ELSEIF type NOT IN ('E', 'C', 'M', 'A', 'B') THEN
+                CALL mostrarError('tipo de licencia invalido');
+            LEAVE bloque;
+        ELSEIF NOT licenciaCodigoExiste(documento) THEN
+                CALL mostrarError('licencia no existe');
+            LEAVE bloque;
+        end if;
+        Set anu = (select id from anulacion where licencia = documento);
+        IF anu > 0 THEN
+            CALL mostrarError('licencia esta anulada');
+            LEAVE bloque;
+        end if ;
+        SET duenio = (select persona from licencia where id = documento);
+        SET tipo_actual = (select tipo from licencia where id = documento);
+        IF type != tipo_actual THEN
+            IF type = 'B' THEN
+                SET anios = (TIMESTAMPDIFF(YEAR, (SELECT emision FROM licencia WHERE persona = duenio and tipo = 'C' limit 1), CURDATE()));
+                IF anios < 2 THEN
+                    CALL mostrarError('No cumple con los requisitos para tipo B');
+                LEAVE bloque;
+                ELSE
+                    set tipo_actual = type;
+                end if;
+            ELSEIF type = 'A' THEN
+                SET anios = (TIMESTAMPDIFF(YEAR, (SELECT emision FROM licencia WHERE persona = duenio and tipo = 'C' limit 1), CURDATE()));
+                IF anios IS NULL THEN
+                    set anios = 0;
+                end if;
+                IF anios < 3 THEN
+                    SET anios = (TIMESTAMPDIFF(YEAR, (SELECT emision FROM licencia WHERE persona = duenio and tipo = 'B' limit 1), CURDATE()));
+                    IF anios IS NULL THEN
+                    set anios = 0;
+                    end if;
+                    IF anios < 2 THEN
+                        CALL mostrarError('No cumple con los requisitos para tipo A');
+                        LEAVE bloque;
+                    ELSE
+                    set tipo_actual = type;
+                    end if;
+                ELSE
+                    set tipo_actual = type;
+                end if;
+            end if;
+            IF type != tipo_actual THEN
+                CALL mostrarError(CONCAT('No puede cambiar de tipo ', tipo_actual,' a ', type));
+                LEAVE bloque;
+                end if ;
+        end if ;
+        SET fecha_actual = (select vencimiento from licencia where id = documento);
+        IF fecha_actual > fecha_renovacion THEN
+            SET fecha_renovacion = fecha_actual;
+        end if;
+        SET fecha_nueva = DATE_ADD(fecha_renovacion, INTERVAL 1 YEAR);
+        UPDATE licencia SET vencimiento = fecha_nueva, tipo = type where id = documento;
+        SELECT id, emision, vencimiento, tipo FROM licencia where id = documento;
+end //
+delimiter ;
+
+Call renewLicencia(16, '08-04-2022', 'A');
