@@ -322,3 +322,122 @@ end //
 delimiter ;
 
 Call generarDPI(1000000260101, '05-09-2021', 1401);
+
+delimiter //
+Create FUNCTION getEdadLic(cui int)
+    RETURNS BOOLEAN DETERMINISTIC
+    BEGIN
+        DECLARE edad int;
+        SET edad = (TIMESTAMPDIFF(YEAR, (SELECT fecha FROM nacimiento WHERE persona = cui limit 1), CURDATE()));
+        RETURN IF(edad >= 16, true, false);
+    end //
+delimiter ;
+
+delimiter //
+Create FUNCTION LicenciaExiste(codigo int)
+    RETURNS BOOLEAN DETERMINISTIC
+    BEGIN
+        DECLARE iden int;
+        SET iden = (SELECT id FROM licencia where persona = codigo order by id desc limit 1);
+        RETURN IF(iden > 0, true, false);
+    end //
+delimiter ;
+
+delimiter //
+Create FUNCTION LicenciaTipoExiste(codigo int, type char)
+    RETURNS BOOLEAN DETERMINISTIC
+    cuerpo:BEGIN
+         DECLARE iden int;
+        IF type in ('C','M') THEN
+            SET iden = (SELECT id FROM licencia where persona = codigo and (tipo = 'C' or tipo = 'M') order by id desc limit 1);
+            RETURN IF(iden > 0, true, false);
+            LEAVE cuerpo;
+        ELSE
+            SET iden = (SELECT id FROM licencia where persona = codigo and type = tipo order by id desc limit 1);
+            RETURN IF(iden > 0, true, false);
+            LEAVE cuerpo;
+        end if;
+    end //
+delimiter ;
+
+delimiter //
+create procedure addLicencia(
+    IN documento bigint,
+    IN fechaEm varchar(12),
+    IN type CHAR(1)
+)
+bloque:begin
+        DECLARE cuiPersona int;
+        DECLARE fecha_emision date;
+        SET fecha_emision = STR_TO_DATE(fechaEm, '%d-%m-%Y');
+        SET cuiPersona = documento div 10000;
+        IF (fecha_emision > curdate()) THEN
+                CALL mostrarError('fecha invalida');
+            LEAVE bloque;
+        ELSEIF NOT personaExiste(cuiPersona) THEN
+                CALL mostrarError('persona no existente');
+            LEAVE bloque;
+         ELSEIF (NOT getEdadLic(cuiPersona)) THEN
+                CALL mostrarError('no tiene edad suficiente');
+            LEAVE bloque;
+        ELSEIF type NOT IN ('E', 'C', 'M') THEN
+                CALL mostrarError('tipo de licencia invalido');
+            LEAVE bloque;
+        ELSEIF (LicenciaTipoExiste(cuiPersona, type)) THEN
+                CALL mostrarError(concat('Ya tiene licencia tipo ', type));
+            LEAVE bloque;
+        end if;
+        insert into licencia (emision, vencimiento, tipo, persona)
+            VALUES (fecha_emision, DATE_ADD(fecha_emision, INTERVAL 1 YEAR), type, cuiPersona);
+        SELECT * FROM licencia where persona = cuiPersona order by id desc limit 1;
+end //
+delimiter ;
+
+Call addLicencia(1000000260101, '05-09-2021', 'C');
+
+delimiter //
+Create FUNCTION LicenciaCodigoExiste(codigo int)
+    RETURNS BOOLEAN DETERMINISTIC
+    BEGIN
+        DECLARE iden int;
+        SET iden = (SELECT id FROM licencia where id = codigo order by id desc limit 1);
+        RETURN IF(iden > 0, true, false);
+    end //
+delimiter ;
+
+delimiter //
+create procedure anularLicencia(
+    IN documento int,
+    IN fechaAn varchar(12),
+    IN motivacion varchar(100)
+)
+bloque:begin
+        DECLARE fecha_emision date;
+        DECLARE fecha_anulada date;
+        DECLARE fecha_nueva date;
+        DECLARE anu int;
+        SET fecha_anulada = STR_TO_DATE(fechaAn, '%d-%m-%Y');
+        SET fecha_nueva = DATE_ADD(fecha_anulada, INTERVAL 2 YEAR);
+        IF (fecha_anulada > curdate()) THEN
+                CALL mostrarError('fecha invalida');
+            LEAVE bloque;
+        ELSEIF NOT licenciaCodigoExiste(documento) THEN
+                CALL mostrarError('licencia no existe');
+            LEAVE bloque;
+        end if;
+        SET  fecha_emision = (select emision from licencia where id = documento);
+        IF fecha_emision > fecha_anulada THEN
+            CALL mostrarError('fecha invalida');
+            LEAVE bloque;
+        end if;
+        Set anu = (select id from anulacion where licencia = documento);
+        IF anu > 0 THEN
+            UPDATE anulacion set fechaFin = fecha_nueva, motivo = motivacion where id = anu;
+        ELSE
+            insert into anulacion (fechaFin, motivo, licencia) values (fecha_nueva, motivacion, documento);
+        end if ;
+        SELECT * FROM anulacion where documento = licencia;
+end //
+delimiter ;
+
+Call anularLicencia(26, '06-04-2022', 'Tontotonto');

@@ -190,3 +190,25 @@ end //
 delimiter ;
 
 call getDPI(1000000250101);
+
+delimiter //
+create procedure getLicencias(
+    IN consultadpi bigint
+)
+bloque:begin
+        DECLARE nombreCompleto varchar(125);
+        DECLARE cuiPer int;
+        SET cuiPer = consultadpi div 10000;
+        IF NOT personaExiste(cuiPer) THEN
+                CALL mostrarError('persona no existente');
+            LEAVE bloque;
+        ELSEIF NOT LicenciaExiste(cuiPer) THEN
+                CALL mostrarError('persona no tiene Licencias');
+            LEAVE bloque;
+        end if;
+        SET nombreCompleto = getNombreCompleto(cuiPer);
+        SELECT id as No_Licencia, nombreCompleto FROM licencia where persona = cuiPer;
+end //
+delimiter ;
+
+call getLicencias(1000000260101);
