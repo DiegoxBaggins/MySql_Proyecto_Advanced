@@ -50,9 +50,6 @@ VALUES (curdate(), 101, 100000000),
        (curdate(), 101, 100000013),
        (curdate(), 101, 100000014);
 
-insert into dpi (emision, municipio, cui)
-VALUES (curdate(), 101, 100000028);
-
 insert into defuncion (fecha, motivo, persona)
 VALUES (curdate(), 'COVID', 100000000),
        (curdate(), 'COVID', 100000003),
@@ -82,11 +79,7 @@ VALUES (curdate(), 1),
 
 insert into  licencia (emision, vencimiento, tipo, persona)
 VALUES
-    ('2018-01-01', '2021-01-01', 'C', 100000002),
-    ('2018-01-01', '2021-01-01', 'C', 100000004),
-    ('2016-01-01', '2021-01-01', 'C', 100000005),
-    ('2015-01-01', '2021-01-01', 'C', 100000012),
-    (curdate(), '2025-01-01', 'C', 100000000),
+       (curdate(), '2025-01-01', 'C', 100000000),
        (curdate(), '2023-01-01', 'C', 100000001),
        (curdate(), '2024-01-01', 'B', 100000002),
        (curdate(), '2025-01-01', 'C', 100000003),
